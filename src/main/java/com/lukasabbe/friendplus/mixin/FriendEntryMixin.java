@@ -1,7 +1,6 @@
 package com.lukasabbe.friendplus.mixin;
 
 import com.lukasabbe.friendplus.Friendplus;
-import com.lukasabbe.friendplus.PlayerScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.*;
@@ -9,7 +8,6 @@ import net.minecraft.client.gui.screens.friends.FriendsOverlayScreen;
 import net.minecraft.client.gui.screens.social.PlayerSocialManager;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.component.ResolvableProfile;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -18,9 +16,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net/minecraft/client/gui/screens/friends/AbstractFriendsEntryContainerWidget")
-public abstract class HeadClickHandler extends AbstractContainerWidget {
+public abstract class FriendEntryMixin extends AbstractContainerWidget {
 
-    public HeadClickHandler(int x, int y, int width, int height, Component message) {super(x, y, width, height, message);}
+    public FriendEntryMixin(int x, int y, int width, int height, Component message) {super(x, y, width, height, message);}
 
     @Shadow
     protected abstract void addChild(AbstractWidget child);
