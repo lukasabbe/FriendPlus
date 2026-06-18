@@ -1,0 +1,6 @@
+classTweaker  v1  official
+accessible class net/minecraft/client/gui/screens/friends/FriendsOverlayTabButton
+accessible method net/minecraft/client/gui/screens/friends/AbstractFriendsTab rearrangeElements ()V
+accessible method net/minecraft/client/gui/screens/friends/AbstractFriendsTab setHeight (I)V
+accessible method net/minecraft/client/gui/screens/friends/AbstractFriendsTab createCenteredText (Lnet/minecraft/network/chat/Component;Lnet/minecraft/client/gui/Font;I)Lnet/minecraft/client/gui/components/MultiLineTextWidget;
+accessible method net/minecraft/client/gui/screens/friends/AbstractFriendsTab createCenteredFrame (Lnet/minecraft/client/gui/layouts/LayoutElement;II)Lnet/minecraft/client/gui/layouts/FrameLayout;
