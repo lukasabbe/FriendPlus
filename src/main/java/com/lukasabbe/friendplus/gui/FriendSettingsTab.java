@@ -1,9 +1,12 @@
-package com.lukasabbe.friendplus;
+package com.lukasabbe.friendplus.gui;
 
+import com.lukasabbe.friendplus.config.ConfigManager;
+import com.lukasabbe.friendplus.config.PresenceSetting;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.components.AbstractWidget;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.LoadingDotsWidget;
 import net.minecraft.client.gui.components.ScrollableLayout;
 import net.minecraft.client.gui.layouts.FrameLayout;
@@ -15,6 +18,7 @@ import net.minecraft.client.gui.screens.friends.FriendsOverlayScreen;
 import net.minecraft.network.chat.Component;
 import org.jspecify.annotations.NonNull;
 
+import java.util.Arrays;
 import java.util.function.Consumer;
 
 @Environment(EnvType.CLIENT)
@@ -76,8 +80,23 @@ public class FriendSettingsTab extends AbstractFriendsTab {
         int maxWidth = this.getListContentWidth();
         content.addChild(this.createCenteredText(Component.translatable("friendplus.friendmenu.settings_tab.title"), this.screen.getFont(), maxWidth));
 
-        content.addChild(new FriendSettingEntry(0, 0, screen.getOverlayWidth() - 16, 28, Component.literal("Title"), Component.literal("Desc")));
+        content.addChild(new FriendSettingEntry(0, 0, screen.getOverlayWidth() - 16, 28, Component.literal("Title"), Component.literal("Desc"),PresenceSetting.getTranslation(ConfigManager.config.status) ,this::onStatusChange));
 
         this.pendingScrollableContent.addChild(content);
+    }
+
+    private void onStatusChange(Button btn){
+        System.out.println("test");
+        PresenceSetting currentStatus = ConfigManager.config.status;
+        var settings = Arrays.asList(PresenceSetting.values());
+        int i = settings.indexOf(currentStatus);
+        i++;
+
+        if(i == settings.size()) i = 0;
+
+        btn.setMessage(PresenceSetting.getTranslation(settings.get(i)));
+        ConfigManager.config.status = settings.get(i);
+        ConfigManager.saveConfig();
+
     }
 }

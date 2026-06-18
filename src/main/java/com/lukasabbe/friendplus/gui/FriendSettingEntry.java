@@ -1,11 +1,9 @@
-package com.lukasabbe.friendplus;
+package com.lukasabbe.friendplus.gui;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.components.AbstractContainerWidget;
-import net.minecraft.client.gui.components.AbstractWidget;
-import net.minecraft.client.gui.components.StringWidget;
+import net.minecraft.client.gui.components.*;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
@@ -19,14 +17,18 @@ public class FriendSettingEntry extends AbstractContainerWidget {
     private final List<AbstractWidget> children;
     private final StringWidget settingTitleWidget;
     private final StringWidget settingDescriptionWidget;
+    private final Button settingButton;
 
-    public FriendSettingEntry(int x, int y, int width, int height, Component settingTitle, Component description) {
+    public FriendSettingEntry(int x, int y, int width, int height, Component settingTitle, Component description, Component defaultButtonText, Button.OnPress onAction) {
         super(x, y, width, height, Component.empty());
         this.children = new ArrayList<>();
         this.settingTitleWidget = new StringWidget(settingTitle, Minecraft.getInstance().font);
         this.settingDescriptionWidget = new StringWidget(description.copy().withStyle(ChatFormatting.GRAY), Minecraft.getInstance().font);
+        this.settingButton = PlainTextButton.builder(defaultButtonText,onAction).size(80,20).build();
         this.children.add(this.settingTitleWidget);
         this.children.add(this.settingDescriptionWidget);
+        this.children.add(this.settingButton);
+
     }
 
     @Override
@@ -36,11 +38,14 @@ public class FriendSettingEntry extends AbstractContainerWidget {
 
     @Override
     protected void extractWidgetRenderState(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
-        this.settingTitleWidget.setPosition(this.getX(), this.getY());
-        this.settingTitleWidget.extractWidgetRenderState(graphics, mouseX, mouseY, a);
 
+        this.settingTitleWidget.setPosition(this.getX(), this.getY());
         this.settingDescriptionWidget.setPosition(this.getX(), this.settingTitleWidget.getBottom() + 3);
+        this.settingButton.setPosition(this.getRight() - this.settingButton.getWidth(), this.getY());
+
         this.settingDescriptionWidget.extractWidgetRenderState(graphics, mouseX, mouseY, a);
+        this.settingButton.extractRenderState(graphics, mouseX, mouseY, a);
+        this.settingTitleWidget.extractWidgetRenderState(graphics, mouseX, mouseY, a);
 
     }
 

@@ -1,5 +1,13 @@
 {
   "friendplus.friendmenu.show_skin.button.title": "Show Skin",
   "friendplus.friendmenu.back.button.title": "Go back",
-  "friendplus.friendmenu.settings_tab.title": "Settings"
+  "friendplus.friendmenu.settings_tab.title": "Settings",
+  "friendplus.friendmenu.settings.none": "Turned off",
+  "friendplus.friendmenu.settings.offline": "Offline",
+  "friendplus.friendmenu.settings.online": "Online",
+  "friendplus.friendmenu.settings.playing_offline": "Singleplayer",
+  "friendplus.friendmenu.settings.playing_realms": "Realms",
+  "friendplus.friendmenu.settings.playing_server": "Server",
+  "friendplus.friendmenu.settings.playing_hosted_server": "P2P Server"
+
 }

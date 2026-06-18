@@ -1,4 +1,4 @@
-package com.lukasabbe.friendplus;
+package com.lukasabbe.friendplus.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;

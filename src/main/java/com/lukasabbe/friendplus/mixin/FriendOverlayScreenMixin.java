@@ -1,7 +1,7 @@
 package com.lukasabbe.friendplus.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyReceiver;
-import com.lukasabbe.friendplus.FriendSettingsTab;
+import com.lukasabbe.friendplus.gui.FriendSettingsTab;
 import net.minecraft.client.gui.components.LoadingDotsWidget;
 import net.minecraft.client.gui.components.tabs.TabManager;
 import net.minecraft.client.gui.components.tabs.TabNavigationBar;
