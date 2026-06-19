@@ -1,4 +1,4 @@
-package com.lukasabbe.friendplus;
+package com.lukasabbe.friendplus.gui;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -17,7 +17,7 @@ import net.minecraft.world.item.component.ResolvableProfile;
 import org.joml.Quaternionf;
 import org.joml.Vector3f;
 
-public class PlayerScreen extends Screen
+public class SkinScreen extends Screen
 {
 
     public static Component BACK_TEXT = Component.translatable("friendplus.friendmenu.back.button.title");
@@ -30,7 +30,7 @@ public class PlayerScreen extends Screen
 
     private final Screen prevScreen;
 
-    public PlayerScreen(Component title, PlayerSocialManager.PlayerData playerData, Screen prevScreen) {
+    public SkinScreen(Component title, PlayerSocialManager.PlayerData playerData, Screen prevScreen) {
         super(title);
         this.profile = ResolvableProfile.createUnresolved(playerData.id());
         this.playerData = playerData;

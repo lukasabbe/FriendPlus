@@ -9,6 +9,7 @@
   "license": "MIT",
   "icon": "assets/friendplus/icon.png",
   "environment": "client",
+  "accessWidener": "friendplus.classtweaker",
   "entrypoints": {
     "main": [
       "com.lukasabbe.friendplus.Friendplus"
