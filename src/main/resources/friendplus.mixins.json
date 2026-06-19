@@ -7,7 +7,8 @@
   ],
   "client": [
     "FriendEntryMixin",
-    "FriendOverlayScreenMixin"
+    "FriendOverlayScreenMixin",
+    "PresenceHandlerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

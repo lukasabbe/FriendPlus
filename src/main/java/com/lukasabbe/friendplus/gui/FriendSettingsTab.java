@@ -80,23 +80,24 @@ public class FriendSettingsTab extends AbstractFriendsTab {
         int maxWidth = this.getListContentWidth();
         content.addChild(this.createCenteredText(Component.translatable("friendplus.friendmenu.settings_tab.title"), this.screen.getFont(), maxWidth));
 
-        content.addChild(new FriendSettingEntry(0, 0, screen.getOverlayWidth() - 16, 28, Component.literal("Title"), Component.literal("Desc"),PresenceSetting.getTranslation(ConfigManager.config.status) ,this::onStatusChange));
+        content.addChild(new FriendSettingEntry(0, 0, screen.getOverlayWidth() - 16, 28, Component.translatable("friendplus.friendmenu.settings.status.title"), Component.translatable("friendplus.friendmenu.settings.status.description"),PresenceSetting.getTranslation(ConfigManager.config.status),Component.translatable("friendplus.friendmenu.settings.status.tooltip"),this::onStatusChange));
 
         this.pendingScrollableContent.addChild(content);
     }
 
     private void onStatusChange(Button btn){
-        System.out.println("test");
         PresenceSetting currentStatus = ConfigManager.config.status;
         var settings = Arrays.asList(PresenceSetting.values());
+
         int i = settings.indexOf(currentStatus);
         i++;
-
         if(i == settings.size()) i = 0;
 
         btn.setMessage(PresenceSetting.getTranslation(settings.get(i)));
         ConfigManager.config.status = settings.get(i);
         ConfigManager.saveConfig();
+
+        Minecraft.getInstance().getPlayerSocialManager().getPresenceHandler().tryUpdatePresence();
 
     }
 }

@@ -12,6 +12,6 @@ public enum PresenceSetting {
     playing_hosted_server;
 
     public static Component getTranslation(PresenceSetting status){
-        return Component.translatable("friendplus.friendmenu.settings."+status.name());
+        return Component.translatable("friendplus.friendmenu.settings.status.enum."+status.name());
     }
 }

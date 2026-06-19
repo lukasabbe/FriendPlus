@@ -2,12 +2,14 @@
   "friendplus.friendmenu.show_skin.button.title": "Show Skin",
   "friendplus.friendmenu.back.button.title": "Go back",
   "friendplus.friendmenu.settings_tab.title": "Settings",
-  "friendplus.friendmenu.settings.none": "Turned off",
-  "friendplus.friendmenu.settings.offline": "Offline",
-  "friendplus.friendmenu.settings.online": "Online",
-  "friendplus.friendmenu.settings.playing_offline": "Singleplayer",
-  "friendplus.friendmenu.settings.playing_realms": "Realms",
-  "friendplus.friendmenu.settings.playing_server": "Server",
-  "friendplus.friendmenu.settings.playing_hosted_server": "P2P Server"
-
+  "friendplus.friendmenu.settings.status.enum.none": "Turned off",
+  "friendplus.friendmenu.settings.status.enum.offline": "Offline",
+  "friendplus.friendmenu.settings.status.enum.online": "Online",
+  "friendplus.friendmenu.settings.status.enum.playing_offline": "Singleplayer",
+  "friendplus.friendmenu.settings.status.enum.playing_realms": "Realms",
+  "friendplus.friendmenu.settings.status.enum.playing_server": "Server",
+  "friendplus.friendmenu.settings.status.enum.playing_hosted_server": "P2P Server",
+  "friendplus.friendmenu.settings.status.title": "Presence changer",
+  "friendplus.friendmenu.settings.status.description": "Change your presence!",
+  "friendplus.friendmenu.settings.status.tooltip": "Allows you to change the status permanently while you are online"
 }
