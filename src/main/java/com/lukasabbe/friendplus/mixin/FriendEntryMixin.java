@@ -4,6 +4,7 @@ import com.lukasabbe.friendplus.Friendplus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.*;
+import net.minecraft.client.gui.screens.friends.FriendEntry;
 import net.minecraft.client.gui.screens.friends.FriendsOverlayScreen;
 import net.minecraft.client.gui.screens.social.PlayerSocialManager;
 import net.minecraft.network.chat.Component;
@@ -45,6 +46,7 @@ public abstract class FriendEntryMixin extends AbstractContainerWidget {
 
     @Inject(method = "extractWidgetRenderState", at=@At("RETURN"))
     public void extractWidgetRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a, CallbackInfo ci){
+        if(!((Object)this instanceof FriendEntry)) return;
         int center = this.getY() + (this.getHeight() - 20) / 2;
         int showSkinX = this.getX() + this.getWidth() - 42;
         this.showSkinButton.setPosition(showSkinX, center);
